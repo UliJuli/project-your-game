@@ -11,18 +11,20 @@ import reportWebVitals from './reportWebVitals';
 import Registration from './components/auth/Registration';
 import Login from './components/auth/Login';
 import Stat from './components/stat/Stat';
+import Game from './components/game/Game';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   <BrowserRouter>
-    <App />
-    <Routes>
-    <Route path="/registration" element={<Registration />} />
-    <Route path="/login" element={<Login/>} />
-    <Route path="/stats" element={<Stat/>} />
-    </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <App />
+      <Routes>
+        <Route path='/' element={<Game />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/stats" element={<Stat />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

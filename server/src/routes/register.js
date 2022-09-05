@@ -5,6 +5,7 @@ const {
 
 router.post('/registration', registerUser);
 router.post('/login', loginUser);
+router.get('/', logout)
 
 
 module.exports = router;

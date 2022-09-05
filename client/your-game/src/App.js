@@ -15,7 +15,7 @@ function App() {
     <Modal onClose={() => setModal(false) }> 
        < Answer onAnswer={() => setModal(false)} /> 
     </Modal>} */}
-    <Game />
+    {/* <Game /> */}
     </div>
     </div>
   );

@@ -47,6 +47,7 @@ app.use(session(sessionConfig));
 
 // Подключаем use для router
 app.use ('/auth', RegistrationRouter)
+app.use('/signout', RegistrationRouter)
 app.use('/stats', statsRoutes)
 app.use('/', answer);
 
