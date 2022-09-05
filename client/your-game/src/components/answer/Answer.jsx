@@ -41,7 +41,6 @@ const Answer = ({onAnswer}) => {
   return (
     <form onSubmit={submitHandlear}  className="flex justify-center flex-col">
       <h1 className="text-center mb-5">{answer.question}</h1>
-      
     <input type="text" 
     onChange={event => setValue(event.target.value)}
     className='border py-2 px-4 mb-2 w-full outline-0' 
