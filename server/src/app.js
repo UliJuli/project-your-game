@@ -13,6 +13,8 @@ const app = express();
 dbConnectionCheck();
 
 // Подключаем руты
+const statsRoutes = require('./routes/stats')
+
 
 const answer = require('./routes/question-route');
 
@@ -45,6 +47,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 // Подключаем use для router
+app.use('/stats', statsRoutes)
 
 app.use('/', answer);
 
