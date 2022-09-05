@@ -1,6 +1,4 @@
 require('dotenv').config();
-
-const { raw } = require('express');
 const { Questions, Topic } = require('../../db/models');
 
 const getQuestion = async (req, res) => {

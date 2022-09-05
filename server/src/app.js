@@ -12,10 +12,9 @@ const { PORT, SESSION_SECRET } = process.env;
 const app = express();
 dbConnectionCheck();
 
-// Подключаем руты
+// Подключаем роуты
+const RegistrationRouter = require('./routes/register')
 const statsRoutes = require('./routes/stats')
-
-
 const answer = require('./routes/question-route');
 
 // app.use(morgan('dev'));
@@ -47,10 +46,10 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 // Подключаем use для router
+app.use ('/auth', RegistrationRouter)
 app.use('/stats', statsRoutes)
-
 app.use('/', answer);
 
 app.listen(PORT ?? 3000, () => {
-  console.log('Сервер запущен!');
+  console.log(`Сервер запущен! на ${PORT} порту`);
 });

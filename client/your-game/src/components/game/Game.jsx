@@ -11,6 +11,8 @@ const Game = () => {
                 credentials: 'include',
             });
             const data = await res.json();
+            console.log('data: ', data);
+
             setValue(data)
         } catch (error) {
             console.log(error)
@@ -24,7 +26,7 @@ const Game = () => {
         {values?.map(( value ) => (
           <tr key={value.id}>
           <td>{value.name_topic}</td>
-          {value.Questions.map(( el ) => <td name={el.id}>{el.price}</td>)}
+          {value.Questions.map(( el ) => <td key={el.id} name={el.id}>{el.price}</td>)}
         </tr>
         ))}
       </tbody>
