@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Table from 'react-bootstrap/Table';
 
-const Game = () => {
+const Game = ({ props }) => {
   return (
-    <div>Game</div>
+    <Table striped bordered hover>
+      <tbody>
+        {props.map(( prop ) => (
+          <tr key={prop.id}>
+          <td>{prop.name_topic}</td>
+          {prop[1].map(( el ) => <td name={el.id}>{el.price}</td>)}
+        </tr>
+        ))}
+      </tbody>
+    </Table>
   )
 }
 
