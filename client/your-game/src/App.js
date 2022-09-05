@@ -3,15 +3,16 @@ import React, {useState} from 'react'
 import './App.css';
 import Answer from './components/answer/Answer';
 import Modal from './components/modal/Modal';
+import Game from './components/game/Game'
 function App() {
   const [modal, setModal] = useState(true)
   return (
     <div className='container mx-auto max-w-2xl pt-5'>
-    {modal && 
+    {/* {modal && 
     <Modal onClose={() => setModal(false) }> 
        < Answer onAnswer={() => setModal(false)} /> 
-    </Modal>}
-
+    </Modal>} */}
+    <Game />
     </div>
   );
 }
