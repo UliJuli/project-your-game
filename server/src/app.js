@@ -12,8 +12,16 @@ const { PORT, SESSION_SECRET } = process.env;
 const app = express();
 dbConnectionCheck();
 
+<<<<<<< HEAD
 // Подключаем роуты
 const RegistrationRouter = require('./routes/register')
+=======
+// Подключаем руты
+const statsRoutes = require('./routes/stats')
+
+
+const answer = require('./routes/question-route');
+>>>>>>> dev
 
 // app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public/'))); // для подключения «клиентских» файлов, хранящихся в / public
@@ -43,7 +51,10 @@ const sessionConfig = {
 // подключение мидлвара для куки
 app.use(session(sessionConfig));
 
+// Подключаем use для router
 app.use ('/auth', RegistrationRouter)
+app.use('/stats', statsRoutes)
+app.use('/', answer);
 
 app.listen(PORT ?? 3000, () => {
   console.log(`Сервер запущен! на ${PORT} порту`);
