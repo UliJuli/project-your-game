@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 
-const Game = ({ props }) => {
+const Game = () => {
+  const [values, setValue]= useState([])
+  useEffect(() => {
+    (async () => {
+        try {
+            const res = await fetch('http://localhost:4000/questions', {
+                method: 'GET',
+                credentials: 'include',
+            });
+            const data = await res.json();
+            setValue(data)
+        } catch (error) {
+            console.log(error)
+        }
+    })();
+}, []);
+
   return (
     <Table striped bordered hover>
       <tbody>
-        {props.map(( prop ) => (
-          <tr key={prop.id}>
-          <td>{prop.name_topic}</td>
-          {prop[1].map(( el ) => <td name={el.id}>{el.price}</td>)}
+        {values?.map(( value ) => (
+          <tr key={value.id}>
+          <td>{value.name_topic}</td>
+          {value.Questions.map(( el ) => <td name={el.id}>{el.price}</td>)}
         </tr>
         ))}
       </tbody>
