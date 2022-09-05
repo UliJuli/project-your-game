@@ -13,6 +13,8 @@ const app = express();
 dbConnectionCheck();
 
 // Подключаем руты
+const statsRoutes = require('./routes/stats')
+
 
 // app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public/'))); // для подключения «клиентских» файлов, хранящихся в / public
@@ -23,7 +25,7 @@ app.use(express.json());
 
 const corsOptions = {
   credentials: true,
-  origin: 'http://localhost:4000', // адрес сервера React
+  origin: 'http://localhost:3000', // адрес сервера React
 };
 app.use(cors(corsOptions));
 
@@ -43,6 +45,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 // Подключаем use для router
+app.use('/stats', statsRoutes)
 
 app.listen(PORT ?? 3000, () => {
   console.log('Сервер запущен!');
