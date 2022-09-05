@@ -10,6 +10,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Registration from './components/auth/Registration';
 import Login from './components/auth/Login';
+import Stat from './components/stat/Stat';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
     <Routes>
     <Route path="/registration" element={<Registration />} />
     <Route path="/login" element={<Login/>} />
+    <Route path="/stats" element={<Stat/>} />
     </Routes>
    </BrowserRouter>
   </React.StrictMode>

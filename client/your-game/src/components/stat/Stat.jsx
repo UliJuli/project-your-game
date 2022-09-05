@@ -7,8 +7,8 @@ import styles from './styles.module.css'
 const Stat = () => {
 
   const userScores = [{
-    name: 'user',
-    score: 115
+    name: 'user1',
+    score: 116
   },]
 
   const [stat, setStat] = useState(userScores)
