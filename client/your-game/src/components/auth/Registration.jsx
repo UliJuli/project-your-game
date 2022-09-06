@@ -36,6 +36,7 @@ export default function Registration() {
       navigate('/');
     }
   }
+  
   return (
     <div className="container">
       <h2>Зарегистрируйтесь</h2>
