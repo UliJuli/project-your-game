@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Routes,
   Route,
@@ -14,12 +15,29 @@ import Login from './components/auth/Login';
 import Stat from './components/stat/Stat';
 
 function App() {
-  const [modal, setModal] = useState(false); // Модальное окно, по умолчанию отключенно 
-  const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
-  const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
-  const [answerDone, setAnswerDone] = useState({}); // Получаем статус вопроса - верно или не верно ответили
-
-  return (
+const dispatch = useDispatch();
+useEffect(() => {
+  (async () => {
+    try {
+      const res = await fetch('http://localhost:4000/questions', {
+        method: 'GET',
+        credentials: 'include',
+      });
+      const data = await res.json();
+      // console.log('data: ', data);
+      dispatch({ type: 'ADD_LIST', payload: { data } })
+    } catch (error) {
+      console.log(error)
+    }
+  })();
+}, [dispatch]);
+const [modal, setModal] = useState(false); // Модальное окно, по умолчанию отключенно 
+const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
+const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
+const [answerDone, setAnswerDone] = useState({}); // Получаем статус вопроса - верно или не верно ответили
+const questionsList = useSelector((store) => store.questionsList);
+console.log(questionsList)  
+return (
     <div>
         <BrowserRouter>    
             <Nav/>
@@ -30,7 +48,7 @@ function App() {
             </Modal>}
             </div>
             <Routes>
-              <Route path='/' element={<Game setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
+              <Route path='/' element={<Game questionsList={questionsList} setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/login" element={<Login />} />
               <Route path="/stats" element={<Stat />} />

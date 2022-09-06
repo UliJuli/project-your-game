@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     question: DataTypes.STRING,
     answer: DataTypes.STRING,
     price: DataTypes.INTEGER,
+    hidden: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Questions',
