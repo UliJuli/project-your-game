@@ -7,7 +7,7 @@ const Game = ({setIdAnswer , setModal, answerDone}) => {
   useEffect(() => {
     (async () => {
         try {
-            const res = await fetch('http://localhost:4000/questions', {
+            const res = await fetch('/questions', {
                 method: 'GET',
                 credentials: 'include',
             });

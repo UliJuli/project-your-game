@@ -18,7 +18,7 @@ const Stat = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/stats', { withCredentials: true })
+      .get('/stats', { withCredentials: true })
       .then((res) => {
         setStat(res.data);
       });

@@ -10,7 +10,7 @@ export default function Login({setNameHendler}) {
 
         const onSubmit = async (data) => {
             const { email, password } = data;
-            const response = await axios.post('http://localhost:4000/auth/login', { email, password }, { withCredentials: true });
+            const response = await axios.post('/auth/login', { email, password }, { withCredentials: true });
             if (response.status === 400) {
                 console.log("Ошибка ответа авторизации")
             } else if (response.status === 200) {

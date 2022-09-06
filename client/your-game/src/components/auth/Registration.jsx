@@ -17,7 +17,7 @@ export default function Registration({setNameHendler}) {
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("Данные пользователей", inputs)
-    const response = await fetch('http://localhost:4000/auth/registration', {
+    const response = await fetch('/auth/registration', {
       method: 'POST',
       credentials: 'include',
       headers: {

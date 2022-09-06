@@ -19,7 +19,7 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
 
   useEffect(() => {
     const takeAnswer = async () => {
-      const response = await axios.get(`http://localhost:4000/answer/${idAnswer}`)
+      const response = await axios.get(`/answer/${idAnswer}`)
       console.log(response.data);
       setAnswer(response.data)
     }
@@ -43,6 +43,9 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
       }, 2000);
     } else {
       setCorrect(2)
+      setScore ((prev) => {
+        return prev - answer.price;
+      });
     } 
   }
 
