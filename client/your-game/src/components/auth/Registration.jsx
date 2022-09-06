@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
-export default function Registration() {
+
+
+export default function Registration({setNameHendler}) {
   const [inputs, setInputs] = useState({ username: '', useremail: '', password: '', });
   const navigate = useNavigate()
 
@@ -28,6 +30,8 @@ export default function Registration() {
     if (response.status === 400) {
       return alert(data.message);
     } else if (response.status === 301) {
+      console.log("datareg", data)
+     setNameHendler(data.name)
       const user = { id: data.id, name: data.name, email: data.email };
       localStorage.removeItem("name");
       localStorage.setItem('name', user.name);

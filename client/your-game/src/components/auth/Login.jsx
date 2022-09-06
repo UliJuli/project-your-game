@@ -2,9 +2,11 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 
-export default function Login() {
+export default function Login({setNameHendler}) {
         const { register, handleSubmit } = useForm();
         let navigate = useNavigate();
+
+        
 
         const onSubmit = async (data) => {
             const { email, password } = data;
@@ -13,8 +15,8 @@ export default function Login() {
                 console.log("Ошибка ответа авторизации")
             } else if (response.status === 200) {
                 const user = { id: response.data.id, name: response.data.name };
-                console.log('user: ', user);
-                
+                console.log('userlogin: ', user);
+                setNameHendler(user.name)
                 localStorage.removeItem("name");
                 localStorage.setItem('name', response.data.name);
                // myUser.addUser(response.data.name)
