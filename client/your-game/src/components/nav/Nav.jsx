@@ -14,7 +14,7 @@ const Nav = ({name}) => {
 
   const logoutHandler = async () => {
     localStorage.removeItem("name");
-    const responce = await axios.get('http://localhost:4000/signout', { withCredentials: true })
+    const responce = await axios.get('/signout', { withCredentials: true })
     console.log("24", responce)
     if (responce.status === 200) {
       window.location.href = "/"

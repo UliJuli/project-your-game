@@ -4,9 +4,9 @@ import { useEffect } from 'react'
 import Tolatter from '../latter/Tolatter'
 import 'animate.css';
 
-const onAnswer = () => {return}
+const onAnswer = ({}) => {return}
 
-const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
+const Answer = ({score, onAnswer, idAnswer, setScore, setAnswerDone}) => {
   const [value, setValue]= useState('')
   const [error, setError] = useState('')
   const [answer, setAnswer] = useState('')
@@ -19,7 +19,7 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
 
   useEffect(() => {
     const takeAnswer = async () => {
-      const response = await axios.get(`http://localhost:4000/answer/${idAnswer}`)
+      const response = await axios.get(`/answer/${idAnswer}`)
       console.log(response.data);
       setAnswer(response.data)
     }
@@ -27,7 +27,7 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
   }, [])
 
   const updateStats = () => {
-    axios.put(`http://localhost:4000/answer/${idAnswer}?value=${answer.price}`, Answer, {withCredentials: true}).then((res) => {
+    axios.put(`/answer/${idAnswer}?value=${answer.price}`, Answer, {withCredentials: true}).then((res) => {
       console.log(res.data)
     })
   }
@@ -49,6 +49,9 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
       }, 2000);
     } else {
       setCorrect(2)
+      setScore ((prev) => {
+        return prev - answer.price;
+      });
     } 
   }
 
@@ -56,6 +59,7 @@ const Answer = ({onAnswer, idAnswer, setScore, setAnswerDone}) => {
     <>
     {counter ? (
         <form onSubmit={submitHandlear}  className="flex justify-center flex-col">
+          <div className="text-right mb-5"><p>Ваш счет: {score}</p></div>
           <h1 className="text-center mb-5">{answer.question}</h1>
           <input type="text" 
           onChange={event => setValue(event.target.value)}

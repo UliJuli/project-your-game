@@ -2,15 +2,15 @@ import { Table, Button } from 'reactstrap'
 import {React, useState} from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
-import styles from './styles.module.css'
+import styles from './styles.css'
 
 import * as XLSX from 'xlsx'
 
 const Stat = () => {
   const userScores = [
     {
-      name: "user1",
-      score: 116,
+      /* name: "user1",
+      score: 0, */
     },
   ];
 
@@ -18,7 +18,7 @@ const Stat = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/stats', { withCredentials: true })
+      .get('/stats', { withCredentials: true })
       .then((res) => {
         setStat(res.data);
       });
@@ -34,8 +34,8 @@ const Stat = () => {
   }
   
   return (
-    <div className={styles.stat_block}>
-      <div className={styles.table_block}>
+    <div className='stat_block'>
+      <div className='table_block'>
       <Table className="table">
   <thead>
     <tr>
@@ -55,7 +55,9 @@ const Stat = () => {
   </tbody>
 </Table>
       </div>
-      <button onClick={getData} type="submit"className="btn btn-primary">Get Data</button>
+      <div className='btn_block'>
+      <button onClick={getData} className="btn btn-primary new">Get Data</button>
+      </div>
     </div>
   )
 }

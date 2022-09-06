@@ -5,6 +5,7 @@ module.exports = {
       question: 'Какое русское слово означает «крепость в городе»?',
       answer: 'Кремль',
       price: 200,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -12,6 +13,7 @@ module.exports = {
       question: 'Итальянское название этого блюда можно перевести на русский язык словом «тесто». А как его называем мы?',
       answer: 'Макароны',
       price: 400,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -19,6 +21,7 @@ module.exports = {
       question: 'Татары, узбеки и казахи называют его «катык», грузины - «мацони», таджики - «чургот», египтяне - «лебен», а как его называют в Турции, Греции, Румынии и во всей Европе?',
       answer: 'Йогурт',
       price: 600,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -26,6 +29,7 @@ module.exports = {
       question: 'По мнению французов, он может украсить любое блюдо.',
       answer: 'Гарнир',
       price: 800,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -33,6 +37,7 @@ module.exports = {
       question: 'Вспомните один музыкальный термин и попробуйте сказать по-французски буквально «кушанье из разных сортов мяса и зелени».',
       answer: 'Попурри',
       price: 1000,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -40,6 +45,7 @@ module.exports = {
       question: 'Щас милиция разберется, кто из нас холоп',
       answer: 'Иван Васильевич меняет профессию',
       price: 200,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -47,6 +53,7 @@ module.exports = {
       question: 'Не виноватая я, он сам пришел',
       answer: 'Бриллиантовая рука',
       price: 400,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -54,6 +61,7 @@ module.exports = {
       question: 'Хьюстон, у нас проблема',
       answer: 'Аполлон - 13',
       price: 600,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(), 
     }, {
@@ -61,6 +69,7 @@ module.exports = {
       question: 'Жизнь, как коробка шоколадных конфет: никогда не знаешь, какая начинка тебе достанется',
       answer: 'Форрест Гамп',
       price: 800,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -68,6 +77,7 @@ module.exports = {
       question: 'Месть - это блюдо, которое лучше подавать холодным',
       answer: 'Убить Билла',
       price: 1000,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(), 
     }, {
@@ -75,6 +85,7 @@ module.exports = {
       question: 'В этой стране нельзя в воскресенье появляться в розовых шортах в общественных местах',
       answer: 'Австралия',
       price: 200,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(), 
     }, {
@@ -82,6 +93,7 @@ module.exports = {
       question: 'В Сингапуре категорически запрещено это кулинарное изделие',
       answer: 'жевательная резинка',
       price: 400,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -89,6 +101,7 @@ module.exports = {
       question: 'Чего нельзя делать, увидев тонущего человека в Китае?',
       answer: 'спасать его',
       price: 600,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -96,6 +109,7 @@ module.exports = {
       question: 'Каких домашних питомцев на Аляске нельзя водить в парикмахерскую?',
       answer: 'фламинго',
       price: 800,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -103,6 +117,7 @@ module.exports = {
       question: 'В американском штате Иллинойс в горящем здании не разрешается:',
       answer: 'есть',
       price: 1000,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -110,6 +125,7 @@ module.exports = {
       question: 'Пробуя новую авторучку, 97 процентов людей пишут?',
       answer: 'свое имя',
       price: 200,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -117,6 +133,7 @@ module.exports = {
       question: 'Множественные татуировки на теле способны:',
       answer: 'укрепить иммунитет',
       price: 400,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -124,6 +141,7 @@ module.exports = {
       question: 'За свою жизнь вы встречаете примерно 16 … и не знаете об этом',
       answer: 'убийц',
       price: 600,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -131,6 +149,7 @@ module.exports = {
       question: 'В среднем человек проводит 6 месяцев своей жизни ожидая...',
       answer: 'зеленый свет светофора',
       price: 800,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -138,6 +157,7 @@ module.exports = {
       question: 'Люди, которые постоянно жалуются...',
       answer: 'живут дольше',
       price: 1000,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -145,6 +165,7 @@ module.exports = {
       question: 'На какой вопрос нельзя ответить «да»?',
       answer: 'Вы спите?',
       price: 200,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -152,6 +173,7 @@ module.exports = {
       question: 'На какой вопрос нельзя ответить «нет»?',
       answer: 'Вы живы?',
       price: 400,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -159,6 +181,7 @@ module.exports = {
       question: 'Что имеет две руки, два крыла, два хвоста, три головы, три туловища и восемь ног?',
       answer: 'Всадник, держащий в руках курицу',
       price: 600,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -166,6 +189,7 @@ module.exports = {
       question: 'Что все люди на земле делают одновременно?',
       answer: 'Становятся старше',
       price: 800,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -173,6 +197,7 @@ module.exports = {
       question: 'Может ли страус назвать себя птицей?',
       answer: 'Нет, он не умеет говорить',
       price: 1000,
+      hidden: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

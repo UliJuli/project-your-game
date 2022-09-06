@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Routes,
   Route,
@@ -14,6 +15,25 @@ import Login from './components/auth/Login';
 import Stat from './components/stat/Stat';
 
 function App() {
+const dispatch = useDispatch();
+useEffect(() => {
+  (async () => {
+    try {
+      const res = await fetch('/questions', {
+        method: 'GET',
+        credentials: 'include',
+      });
+      const data = await res.json();
+      // console.log('data: ', data);
+      dispatch({ type: 'ADD_LIST', payload: { data } })
+    } catch (error) {
+      console.log(error)
+    }
+  })();
+}, [dispatch]);
+
+const questionsList = useSelector((store) => store.questionsList);
+  
   const [modal, setModal] = useState(false); // Модальное окно, по умолчанию отключенно 
   const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
   const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
@@ -29,11 +49,11 @@ function App() {
             <div className='container mx-auto max-w-2xl pt-5'>
             {modal && 
             <Modal onClose={() => setModal(false) }> 
-               < Answer idAnswer={idAnswer} setScore={setScore} setAnswerDone={setAnswerDone} onAnswer={() => setModal(false)} /> 
+               < Answer score={score} idAnswer={idAnswer} setScore={setScore} setAnswerDone={setAnswerDone} onAnswer={() => setModal(false)} /> 
             </Modal>}
             </div>
             <Routes>
-              <Route path='/' element={<Game setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
+              <Route path='/' element={<Game questionsList={questionsList} setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
               <Route path="/registration" element={<Registration setNameHendler={setNameHendler} />} />
               <Route path="/login" element={<Login setNameHendler={setNameHendler} />} />
               <Route path="/stats" element={<Stat />} />
