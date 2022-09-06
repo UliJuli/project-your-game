@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function Registration() {
   const [inputs, setInputs] = useState({ username: '', useremail: '', password: '', });
   const navigate = useNavigate()
@@ -56,7 +54,7 @@ export default function Registration() {
           <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
           <input type="password" name="password" value={inputs.password} onChange={inputHandler} className="form-control" id="exampleInputPassword1" />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit"className="btn btn-primary">Submit</button>
       </form>
       <hr />
     </div>
