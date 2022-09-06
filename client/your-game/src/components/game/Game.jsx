@@ -29,6 +29,7 @@ const tableHendlear = (e) =>{
 }
 
   return (
+    <div className='game_block'>
     <Table striped bordered hover>
       <tbody>
         {values?.map(( value ) => (
@@ -39,6 +40,7 @@ const tableHendlear = (e) =>{
         ))}
       </tbody>
     </Table>
+        </div>
   )
 }
 

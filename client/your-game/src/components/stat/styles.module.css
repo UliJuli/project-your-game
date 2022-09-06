@@ -1,23 +1,30 @@
 th {
   padding: 0 40px;
-}
-
-tr {
+ }
+  
+ tr {
   text-align: center;
-}
-
-table {
+ }
+  
+ table {
+  max-width: 860px;
   background-color: rgb(191, 186, 186);
   border-radius: 11px;
   width: 960px;
-}
-
-.stat_block {
+ }
+  
+ .stat_block {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.table_block {
+ }
+ .table_block {
   display: flex;
   justify-content: center;
-}
+ }
+  
+ .btn_block {
+  display: flex;
+  justify-content: center;
+ }
+ 

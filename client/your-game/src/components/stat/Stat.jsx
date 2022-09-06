@@ -35,7 +35,6 @@ const Stat = () => {
   
   return (
     <div className={styles.stat_block}>
-      <h2 className='title' id="tt">Leaderboard</h2>
       <div className={styles.table_block}>
       <Table className="table">
   <thead>
@@ -56,7 +55,7 @@ const Stat = () => {
   </tbody>
 </Table>
       </div>
-      <Button onClick={getData} className={styles.btn}>Get Data</Button>
+      <button onClick={getData} type="submit"className="btn btn-primary">Get Data</button>
     </div>
   )
 }
