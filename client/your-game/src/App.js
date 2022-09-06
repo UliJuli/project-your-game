@@ -19,7 +19,7 @@ const dispatch = useDispatch();
 useEffect(() => {
   (async () => {
     try {
-      const res = await fetch('http://localhost:4000/questions', {
+      const res = await fetch('/questions', {
         method: 'GET',
         credentials: 'include',
       });
@@ -31,16 +31,21 @@ useEffect(() => {
     }
   })();
 }, [dispatch]);
-const [modal, setModal] = useState(false); // Модальное окно, по умолчанию отключенно 
-const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
-const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
-const [answerDone, setAnswerDone] = useState({}); // Получаем статус вопроса - верно или не верно ответили
+
 const questionsList = useSelector((store) => store.questionsList);
-console.log(questionsList)  
-return (
+  
+  const [modal, setModal] = useState(false); // Модальное окно, по умолчанию отключенно 
+  const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
+  const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
+  const [answerDone, setAnswerDone] = useState({}); // Получаем статус вопроса - верно или не верно ответили
+  const [name, setName] = useState("")
+  function setNameHendler (data) {
+    setName(data)
+  }
+  return (
     <div>
         <BrowserRouter>    
-            <Nav/>
+            <Nav name = {name}/>
             <div className='container mx-auto max-w-2xl pt-5'>
             {modal && 
             <Modal onClose={() => setModal(false) }> 
@@ -49,8 +54,8 @@ return (
             </div>
             <Routes>
               <Route path='/' element={<Game questionsList={questionsList} setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
-              <Route path="/registration" element={<Registration />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/registration" element={<Registration setNameHendler={setNameHendler} />} />
+              <Route path="/login" element={<Login setNameHendler={setNameHendler} />} />
               <Route path="/stats" element={<Stat />} />
           </Routes>
     </BrowserRouter>

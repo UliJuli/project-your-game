@@ -2,19 +2,21 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 
-export default function Login() {
+export default function Login({setNameHendler}) {
         const { register, handleSubmit } = useForm();
         let navigate = useNavigate();
 
+        
+
         const onSubmit = async (data) => {
             const { email, password } = data;
-            const response = await axios.post('http://localhost:4000/auth/login', { email, password }, { withCredentials: true });
+            const response = await axios.post('/auth/login', { email, password }, { withCredentials: true });
             if (response.status === 400) {
                 console.log("Ошибка ответа авторизации")
             } else if (response.status === 200) {
                 const user = { id: response.data.id, name: response.data.name };
-                console.log('user: ', user);
-                
+                console.log('userlogin: ', user);
+                setNameHendler(user.name)
                 localStorage.removeItem("name");
                 localStorage.setItem('name', response.data.name);
                // myUser.addUser(response.data.name)

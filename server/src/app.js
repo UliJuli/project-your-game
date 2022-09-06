@@ -13,12 +13,13 @@ const app = express();
 dbConnectionCheck();
 
 // Подключаем роуты
-const RegistrationRouter = require('./routes/register')
-const statsRoutes = require('./routes/stats')
+const RegistrationRouter = require('./routes/register');
+const statsRoutes = require('./routes/stats');
 const answer = require('./routes/question-route');
 
 // app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../public/'))); // для подключения «клиентских» файлов, хранящихся в / public
+app.use(express.static(path.resolve(process.env.PWD, '..', 'client', 'your-game', 'build')));
+// app.use(express.static(path.join(__dirname, 'build'))); // для подключения «клиентских» файлов, хранящихся в / public
 app.use(express.urlencoded({ extended: true })); // Для того, чтобы обрабатывать тела запросов, которые через метод POST
 app.use(express.json());
 
@@ -46,10 +47,14 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 // Подключаем use для router
-app.use ('/auth', RegistrationRouter)
-app.use('/signout', RegistrationRouter)
-app.use('/stats', statsRoutes)
+app.use('/auth', RegistrationRouter);
+app.use('/signout', RegistrationRouter);
+app.use('/stats', statsRoutes);
 app.use('/', answer);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(process.env.PWD, '..', 'client', 'your-game', 'build'));
+});
 
 app.listen(PORT ?? 3000, () => {
   console.log(`Сервер запущен! на ${PORT} порту`);
