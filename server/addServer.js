@@ -24,4 +24,4 @@ async function addQuestion(name) {
   }
 }
 
-addQuestion('Как дела');
+// addQuestion('Как дела');
