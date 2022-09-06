@@ -58,7 +58,7 @@ export default function Registration({setNameHendler}) {
           <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
           <input type="password" name="password" value={inputs.password} onChange={inputHandler} className="form-control" id="exampleInputPassword1" />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
       <hr />
     </div>

@@ -22,4 +22,5 @@ const getAllQuestion = async (req, res) => {
   }
 };
 
+
 module.exports = { getQuestion, getAllQuestion };
