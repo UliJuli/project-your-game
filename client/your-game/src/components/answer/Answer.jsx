@@ -25,8 +25,13 @@ const Answer = ({score, onAnswer, idAnswer, setScore, setAnswerDone}) => {
     }
     takeAnswer()
   }, [])
-  
 
+  const updateStats = () => {
+    axios.put(`/answer/${idAnswer}?value=${answer.price}`, Answer, {withCredentials: true}).then((res) => {
+      console.log(res.data)
+    })
+  }
+  
   const submitHandlear = async (e) => {
    setError('')
    e.preventDefault();
@@ -36,6 +41,7 @@ const Answer = ({score, onAnswer, idAnswer, setScore, setAnswerDone}) => {
       setScore ((prev) => {
         return prev + answer.price;
       });
+      updateStats()
       setCorrect(1)
       setAnswerDone({status: true, id: answer.id})
       setTimeout(() => {

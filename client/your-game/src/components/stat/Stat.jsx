@@ -2,15 +2,15 @@ import { Table, Button } from 'reactstrap'
 import {React, useState} from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
-import styles from './styles.module.css'
+import styles from './styles.css'
 
 import * as XLSX from 'xlsx'
 
 const Stat = () => {
   const userScores = [
     {
-      name: "user1",
-      score: 116,
+      /* name: "user1",
+      score: 0, */
     },
   ];
 
@@ -34,9 +34,8 @@ const Stat = () => {
   }
   
   return (
-    <div className={styles.stat_block}>
-      <h2 className='title' id="tt">Leaderboard</h2>
-      <div className={styles.table_block}>
+    <div className='stat_block'>
+      <div className='table_block'>
       <Table className="table">
   <thead>
     <tr>
@@ -56,7 +55,9 @@ const Stat = () => {
   </tbody>
 </Table>
       </div>
-      <Button onClick={getData} className={styles.btn}>Get Data</Button>
+      <div className='btn_block'>
+      <button onClick={getData} className="btn btn-primary new">Get Data</button>
+      </div>
     </div>
   )
 }

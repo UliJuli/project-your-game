@@ -14,6 +14,7 @@ const tableHendlear = async (e) =>{
     dispatch({type: 'BOOL_ANSWER', payload:{ id }})
 }
   return (
+    <div className='game_block'>
     <Table striped bordered hover>
       <tbody>
         {questionsList?.map(( value ) => (
@@ -24,6 +25,7 @@ const tableHendlear = async (e) =>{
         ))}
       </tbody>
     </Table>
+        </div>
   )
 }
 
