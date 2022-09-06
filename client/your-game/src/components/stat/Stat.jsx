@@ -1,24 +1,38 @@
-import { Table } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
 import {React, useState} from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
 import styles from './styles.module.css'
 
+import * as XLSX from 'xlsx'
+
 const Stat = () => {
+  const userScores = [
+    {
+      name: "user1",
+      score: 116,
+    },
+  ];
 
-  const userScores = [{
-    name: 'user1',
-    score: 116
-  },]
+  const [stat, setStat] = useState(userScores);
 
-  const [stat, setStat] = useState(userScores)
-  
   useEffect(() => {
-    axios.get(`http://localhost:4000/stats`, { withCredentials: true }).then((res) => {
-      setStat(res.data)
-    })
-  }, [])
+    axios
+      .get('http://localhost:4000/stats', { withCredentials: true })
+      .then((res) => {
+        setStat(res.data);
+      });
+  }, []);
 
+  const getData = () => {
+    let wb = XLSX.utils.book_new(),
+    ws = XLSX.utils.json_to_sheet(stat);
+
+    XLSX.utils.book_append_sheet(wb,ws,'MySheet1');
+
+    XLSX.writeFile(wb, 'MyExcel.xlsx');
+  }
+  
   return (
     <div className={styles.stat_block}>
       <h2 className='title' id="tt">Leaderboard</h2>
@@ -42,8 +56,9 @@ const Stat = () => {
   </tbody>
 </Table>
       </div>
+      <Button onClick={getData} className={styles.btn}>Get Data</Button>
     </div>
   )
 }
 
-export default Stat
+export default Stat;
