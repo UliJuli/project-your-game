@@ -38,20 +38,12 @@ const loginUser = async (req, res) => {
   }
 };
 
-const logout = async (req, res) => {
-  // try {
-  //   if (req.session.newUser) {
-  //     req.session.destroy(() => {
-  //       res.clearCookie('login');
-  //       res.redirect('/');
-  //     });
-  //   } else {
-  //     res.redirect('/login');
-  //   }
-  // } catch (error) {
-  //   console.log('Не получилось выйти', error);
-  // }
-};
+const logout = async (req, res, next) => {
+  console.log(req.session);
+  req.session.destroy();
+  res.clearCookie('login');
+  res.end()
+}
 
 module.exports = {
  registerUser, loginUser, logout,

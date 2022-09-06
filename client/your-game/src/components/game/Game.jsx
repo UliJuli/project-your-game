@@ -19,14 +19,12 @@ const Game = ({setIdAnswer , setModal, answerDone}) => {
         }
     })();
 }, []);
-console.log(answerDone.status);
 
 const tableHendlear = (e) =>{
   setIdAnswer(e.target.dataset.name);
   setModal(true)
-  // if (answerDone.status === true) {
     e.currentTarget.classList.add('close')
-  // }
+
   
 }
 
