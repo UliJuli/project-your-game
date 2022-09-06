@@ -18,11 +18,14 @@ function App() {
   const [idAnswer, setIdAnswer] = useState(0); // Получаем ID вопроса по которому кликнули
   const [score, setScore] = useState(0) // Счет игрока, добавляется цена вопроса
   const [answerDone, setAnswerDone] = useState({}); // Получаем статус вопроса - верно или не верно ответили
-
+  const [name, setName] = useState("")
+  function setNameHendler (data) {
+    setName(data)
+  }
   return (
     <div>
         <BrowserRouter>    
-            <Nav/>
+            <Nav name = {name}/>
             <div className='container mx-auto max-w-2xl pt-5'>
             {modal && 
             <Modal onClose={() => setModal(false) }> 
@@ -31,8 +34,8 @@ function App() {
             </div>
             <Routes>
               <Route path='/' element={<Game setIdAnswer ={setIdAnswer} setModal={setModal} answerDone={answerDone}/>} />
-              <Route path="/registration" element={<Registration />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/registration" element={<Registration setNameHendler={setNameHendler} />} />
+              <Route path="/login" element={<Login setNameHendler={setNameHendler} />} />
               <Route path="/stats" element={<Stat />} />
           </Routes>
     </BrowserRouter>

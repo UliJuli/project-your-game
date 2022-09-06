@@ -1,10 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useEffect } from 'react'
 
-const Nav = () => {
+const Nav = ({name}) => {
   const username = localStorage.getItem('name')
-  console.log('username: ', username);
+ // console.log('username: ', username);
+  // const [name, setName] = useState("")
+  
+  // useEffect(() => {
+  //   setName(localStorage.getItem('name'))
+  // }, []);
+
   const logoutHandler = async () => {
     localStorage.removeItem("name");
     const responce = await axios.get('http://localhost:4000/signout', { withCredentials: true })
@@ -16,7 +23,7 @@ const Nav = () => {
 
   return (
     <div>
-      {username ? (
+      {name || username ? (
         <>
           <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
@@ -28,11 +35,12 @@ const Nav = () => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link className="nav-link" to="/name">
-                      Привет, {username}
+                      Привет, {name || username}
                     </Link>
                   </li>
+                  <Link className="nav-link" to='/stats'>Статистика</Link>
                   <li className="nav-item">
-                    <div onClick={() => logoutHandler()} className="nav-link">Log Out </div>
+                    <div onClick={() => logoutHandler()} className="nav-link">Выход </div>
                   </li>
                 </ul>
               </div>
