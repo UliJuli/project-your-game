@@ -49,7 +49,7 @@ const questionsList = useSelector((store) => store.questionsList);
             <div className='container mx-auto max-w-2xl pt-5'>
             {modal && 
             <Modal onClose={() => setModal(false) }> 
-               < Answer idAnswer={idAnswer} setScore={setScore} setAnswerDone={setAnswerDone} onAnswer={() => setModal(false)} /> 
+               < Answer score={score} idAnswer={idAnswer} setScore={setScore} setAnswerDone={setAnswerDone} onAnswer={() => setModal(false)} /> 
             </Modal>}
             </div>
             <Routes>
