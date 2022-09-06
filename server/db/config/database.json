@@ -1,6 +1,8 @@
 {
   "development": {
-    "use_env_variable": "DB_URL"
+    "use_env_variable": "DB_URL",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeData"
   },
   "test": {
     "username": "root",

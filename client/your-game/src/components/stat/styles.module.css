@@ -1,0 +1,23 @@
+th {
+  padding: 0 40px;
+}
+
+tr {
+  text-align: center;
+}
+
+table {
+  background-color: rgb(191, 186, 186);
+  border-radius: 11px;
+  width: 960px;
+}
+
+.stat_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.table_block {
+  display: flex;
+  justify-content: center;
+}
