@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 const Nav = ({name}) => {
-  //const username = localStorage.getItem('name')
+  const username = localStorage.getItem('name')
  // console.log('username: ', username);
   // const [name, setName] = useState("")
   
@@ -23,7 +23,7 @@ const Nav = ({name}) => {
 
   return (
     <div>
-      {name ? (
+      {name || username ? (
         <>
           <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
@@ -35,7 +35,7 @@ const Nav = ({name}) => {
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link className="nav-link" to="/name">
-                      Привет, {name}
+                      Привет, {name || username}
                     </Link>
                   </li>
                   <Link className="nav-link" to='/stats'>Статистика</Link>
