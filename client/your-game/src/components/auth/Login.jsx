@@ -19,8 +19,6 @@ export default function Login({ setNameHendler }) {
             setNameHendler(user.name)
             localStorage.removeItem("name");
             localStorage.setItem('name', response.data.name);
-            // myUser.addUser(response.data.name)
-            //window.location.href = "/"
             navigate("/")
         }
     };
